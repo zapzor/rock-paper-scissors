@@ -1,8 +1,10 @@
 //Create function that randomly returns rock, paper or scissors.
 const computerSelection = computerPlay();
 const playerSelection = playerPlay();
+const playerScore = 0
+const computerScore = 0
 function computerPlay() {
-    let game = ['Rock', 'Paper', 'Scissors']
+    let game = ['rock', 'paper', 'scissors']
     let computerPlay = game[Math.floor(Math.random()*game.length)];
     return computerPlay;
 }
@@ -13,34 +15,30 @@ function playerPlay() {
 }
 //Create function that plays a round of rock paper scissors.
 function playRound(playerSelection, computerSelection) {
-    let playerScore = 0
-    let computerScore = 0
-    if (playerSelection === computerSelection) {
+    if (playerSelection === null) {
+        return 'Please enter a value';
+    }else if (playerSelection === computerSelection) {
         return 'Draw';
-    }else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
+    }else if (playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore++
         return 'You win!';
-    }else if (playerSelection === 'paper' && computerSelection === 'Rock'){
+    }else if (playerSelection === 'paper' && computerSelection === 'rock'){
         playerScore++
         return 'You win!';
-    }else if (playerSelection === 'rock' && computerSelection === 'Scissors') {
+    }else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore++
         return 'You Win!';
     }else{
-        computerScore++
         return 'You lose!';
     }
 } 
-
-console.log(game(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection, playerScore))
 //Create function that plays 5 rounds of rock paper scissors and declares the winner with most won rounds.
 function game(playerSelection, computerSelection) {
-    game1 = playRound(playerSelection, computerSelection)
-    game2 = playRound(playerSelection, computerSelection)
-    game3 = playRound(playerSelection, computerSelection)
-    game4 = playRound(playerSelection, computerSelection)
-    game5 = playRound(playerSelection, computerSelection)
-    console.log(game1, game2, game3, game4, game5)
-    return game1, game2, game3, game4, game5;
-    
+    let i = 0;
+    for (i = 0; i < 5 ; i++) {
+    playRound(playerSelection, computerSelection);
+    console.log(i)
+}
+return game;
 }
