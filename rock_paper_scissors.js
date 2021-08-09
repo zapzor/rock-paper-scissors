@@ -8,7 +8,7 @@ function computerPlay() {
 }
 //Create function that takes player input of rock, paper or scissors.
 function playerPlay() {
-   let player = prompt('Rock, paper or scissors?');
+   let player = prompt('Rock, paper or scissors?').toLowerCase()
     return player;
 }
 //Create function that plays a round of rock paper scissors.
@@ -17,13 +17,13 @@ function playRound(playerSelection, computerSelection) {
     let computerScore = 0
     if (playerSelection === computerSelection) {
         return 'Draw';
-    }else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
+    }else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
         playerScore++
         return 'You win!';
-    }else if (playerSelection === 'Paper' && computerSelection === 'Rock'){
+    }else if (playerSelection === 'paper' && computerSelection === 'Rock'){
         playerScore++
         return 'You win!';
-    }else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+    }else if (playerSelection === 'rock' && computerSelection === 'Scissors') {
         playerScore++
         return 'You Win!';
     }else{
