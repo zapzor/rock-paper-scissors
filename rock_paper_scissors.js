@@ -1,8 +1,6 @@
 //Create function that randomly returns rock, paper or scissors.
 const computerSelection = computerPlay();
 const playerSelection = playerPlay();
-const playerScore = 0
-const computerScore = 0
 function computerPlay() {
     let game = ['rock', 'paper', 'scissors']
     let computerPlay = game[Math.floor(Math.random()*game.length)];
@@ -13,32 +11,31 @@ function playerPlay() {
    let player = prompt('Rock, paper or scissors?').toLowerCase()
     return player;
 }
-//Create function that plays a round of rock paper scissors.
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === null) {
-        return 'Please enter a value';
-    }else if (playerSelection === computerSelection) {
-        return 'Draw';
-    }else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-        playerScore++
-        return 'You win!';
-    }else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        playerScore++
-        return 'You win!';
-    }else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        playerScore++
-        return 'You Win!';
-    }else{
-        return 'You lose!';
-    }
-} 
-console.log(playRound(playerSelection, computerSelection, playerScore))
+
 //Create function that plays 5 rounds of rock paper scissors and declares the winner with most won rounds.
 function game(playerSelection, computerSelection) {
+    let playerScore = 0
+    let computerScore = 0
+
     let i = 0;
-    for (i = 0; i < 5 ; i++) {
-    playRound(playerSelection, computerSelection);
-    console.log(i)
+    for (i = 0; i < 5; i++) {
+        if (playerSelection === null || playerSelection === '') {
+            return 'Please enter a value';
+        } else if (playerSelection === computerSelection) {
+            return 'Draw';
+        } else if (playerSelection === 'scissors' && computerSelection === 'paper' 
+        || playerSelection === 'paper' && computerSelection === 'rock' 
+        || playerSelection === 'rock' && computerSelection === 'scissors') {
+           playerScore++
+            return 'You win!';
+        } else if (playerSelection === 'rock' && computerSelection === 'paper'
+        || playerSelection === 'scissors' && computerSelection === 'rock'
+        || playerSelection === 'paper' && computerSelection === 'scissors') {
+            computerScore++
+            return 'You lose!';
+        } else{
+            return 'Something went wrong.';
+        }
+    }
 }
-return game;
-}
+console.log(game(playerSelection, computerSelection))
