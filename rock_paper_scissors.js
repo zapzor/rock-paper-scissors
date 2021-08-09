@@ -37,5 +37,16 @@ function game(playerSelection, computerSelection) {
             return 'Something went wrong.';
         }
     }
-}
+    if(playerScore > computerScore) {
+        return 'You won!'
+    }else if(computerScore > playerScore) {
+            return 'You lost!'
+        
+    }else if(playerScore === computerScore){
+        return "It's a draw!"
+    }else{
+        return 'Something went wrong'
+    }
+        }
+
 console.log(game(playerSelection, computerSelection))
