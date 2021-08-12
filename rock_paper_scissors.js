@@ -1,52 +1,58 @@
 //Create function that randomly returns rock, paper or scissors.
 const computerSelection = computerPlay();
-const playerSelection = playerPlay();
 function computerPlay() {
     let game = ['rock', 'paper', 'scissors']
     let computerPlay = game[Math.floor(Math.random()*game.length)];
     return computerPlay;
 }
 //Create function that takes player input of rock, paper or scissors.
-function playerPlay() {
-   let player = prompt('Rock, paper or scissors?').toLowerCase()
-    return player;
-}
+//Create a UI that displays three buttons for each possible selection with an eventListener.
+
 
 //Create function that plays 5 rounds of rock paper scissors and declares the winner with most won rounds.
 function game(playerSelection, computerSelection) {
-    let playerScore = 0
-    let computerScore = 0
+    
+    const container0 = document.querySelector('#div');
+    const content = document.createElement('div')
+    content.textContent = 'Rock, paper or scissors?'
+    container0.appendChild(content);
 
-    let i = 0;
-    for (i = 0; i < 5; i++) {
+    const playerScore = 0
+    const computerScore = 0
+
         if (playerSelection === null || playerSelection === '') {
+            content.textContent = 'Please enter a valid value'
             return 'Please enter a value';
         } else if (playerSelection === computerSelection) {
+            content.textContent = 'Draw'
             return 'Draw';
         } else if (playerSelection === 'scissors' && computerSelection === 'paper' 
         || playerSelection === 'paper' && computerSelection === 'rock' 
         || playerSelection === 'rock' && computerSelection === 'scissors') {
-           playerScore++
+            content.textContent = 'You win!'
             return 'You win!';
         } else if (playerSelection === 'rock' && computerSelection === 'paper'
         || playerSelection === 'scissors' && computerSelection === 'rock'
         || playerSelection === 'paper' && computerSelection === 'scissors') {
-            computerScore++
+            content.textContent = 'You lose!'
             return 'You lose!';
         } else{
-            return 'Something went wrong.';
+            content.textContent = 'Something went wrong'
+            return 'Something went wrong';
         }
     }
-    if(playerScore > computerScore) {
-        return 'You won!'
-    }else if(computerScore > playerScore) {
-            return 'You lost!'
-        
-    }else if(playerScore === computerScore){
-        return "It's a draw!"
-    }else{
-        return 'Something went wrong'
-    }
-        }
 
-console.log(game(playerSelection, computerSelection))
+rock.addEventListener('click', function () {
+    playerSelection = 'rock'
+    console.log(game(playerSelection, computerSelection))
+})
+
+paper.addEventListener('click', function () {
+    playerSelection = 'paper'
+    console.log(game(playerSelection, computerSelection))
+})
+
+scissors.addEventListener('click', function () {
+    playerSelection = 'scissors'
+    console.log(game(playerSelection, computerSelection))
+})
