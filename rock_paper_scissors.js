@@ -13,7 +13,6 @@ paper.addEventListener('click', function () {
     console.log(rounds(playerSelection, computerSelection))
 })
 
-const scissors = document.createElement('scissors');
 scissors.addEventListener('click', function () {
     playerSelection = 'scissors'
     console.log(rounds(playerSelection, computerSelection))
