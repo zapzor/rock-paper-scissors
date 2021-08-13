@@ -13,6 +13,7 @@ paper.addEventListener('click', function () {
     console.log(rounds(playerSelection, computerSelection))
 })
 
+const scissors = document.createElement('scissors');
 scissors.addEventListener('click', function () {
     playerSelection = 'scissors'
     console.log(rounds(playerSelection, computerSelection))
@@ -33,6 +34,8 @@ function game(playerSelection, computerSelection) {
     const score = document.createElement('p1')
     content.textContent = ''
     score.textContent = ''
+    content.style.color = 'white';
+    score.style.color = 'white'
     container0.appendChild(content);
     container0.appendChild(score)
 
