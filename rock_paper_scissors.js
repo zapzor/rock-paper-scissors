@@ -2,77 +2,72 @@
 let playerScore = 0
 let computerScore = 0
 const computerSelection = computerPlay();
+const container0 = document.querySelector("#div");
+const content = document.createElement("div");
+const score = document.createElement("p1");
 
-rock.addEventListener('click', function () {
-    playerSelection = 'rock'
-    console.log(rounds(playerSelection, computerSelection))
+container0.appendChild(content);
+container0.appendChild(score);
+
+rock.addEventListener("click", function () {
+    playerSelection = "rock"
+    console.log(game(playerSelection, computerSelection))
 })
 
-paper.addEventListener('click', function () {
-    playerSelection = 'paper'
-    console.log(rounds(playerSelection, computerSelection))
+paper.addEventListener("click", function () {
+    playerSelection = "paper"
+    console.log(game(playerSelection, computerSelection))
 })
 
-scissors.addEventListener('click', function () {
-    playerSelection = 'scissors'
-    console.log(rounds(playerSelection, computerSelection))
+scissors.addEventListener("click", function () {
+    playerSelection = "scissors"
+    console.log(game(playerSelection, computerSelection))
 })
 
-
-//Create function that randomly returns rock, paper or scissors.
+//Function that randomly returns rock, paper or scissors.
 function computerPlay() {
-    let computerChoice = ['rock', 'paper', 'scissors']
+    let computerChoice = ["rock", "paper", "scissors"]
     let computerPlay = computerChoice[Math.floor(Math.random()*computerChoice.length)];
     return computerPlay;
 }
 
-//Create function that plays 5 rounds of rock paper scissors and declares the winner with most won rounds.
-function game(playerSelection, computerSelection) {
-    const container0 = document.querySelector('#div');
-    const content = document.createElement('div')
-    const score = document.createElement('p1')
-    content.textContent = ''
-    score.textContent = ''
-    content.style.color = 'white';
-    score.style.color = 'white'
-    container0.appendChild(content);
-    container0.appendChild(score)
+//Function that plays a round of RPS.
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    content.textContent = "Draw"
+      return "Draw";
+  }else if (playerSelection === "scissors" && computerSelection === "paper" 
+    || playerSelection === "paper" && computerSelection === "rock" 
+    || playerSelection === "rock" && computerSelection === "scissors") {
+      playerScore++
+      content.textContent = "You win!"
+      score.textContent = `Player score is ${playerScore}, computer score is ${computerScore}`;
+  }else if (playerSelection === "rock" && computerSelection === "paper"
+    || playerSelection === "scissors" && computerSelection === "rock"
+    || playerSelection === "paper" && computerSelection === "scissors") {
+      computerScore++
+      content.textContent = "You lose!";
+      score.textContent = `Player score is ${playerScore}, computer score is ${computerScore}`;
+      return "You lose!";
+  }else {
+    content.textContent = "Something went wrong";
+    return "Something went wrong";
+      }
+}
 
-        if (playerSelection === null || playerSelection === '') {
-            content.textContent = 'Please enter a valid value'
-            return 'Please enter a value';
-        } else if (playerSelection === computerSelection) {
-            content.textContent = 'Draw'
-            return 'Draw';
-        } else if (playerSelection === 'scissors' && computerSelection === 'paper' 
-        || playerSelection === 'paper' && computerSelection === 'rock' 
-        || playerSelection === 'rock' && computerSelection === 'scissors') {
-            playerScore++
-            content.textContent = 'You win!'
-            score.textContent = playerScore
-            return 'You win!';
-        } else if (playerSelection === 'rock' && computerSelection === 'paper'
-        || playerSelection === 'scissors' && computerSelection === 'rock'
-        || playerSelection === 'paper' && computerSelection === 'scissors') {
-            computerScore++
-            content.textContent = 'You lose!'
-            score.textContent = computerScore
-            return 'You lose!';
-        } else{
-            content.textContent = 'Something went wrong'
-            return 'Something went wrong';
-        }}
+function game() {
+  if (playerScore || computerScore != 5) {
+  playRound(playerSelection, computerSelection)
+  }else if (computerScore == 5) {
+    computerScore = 0
+    playerScore = 0
+    content.textContent = ("The computer wins! Play again?")
+    return console.log("Computer wins!") 
+  }else if (playerScore == 5) {
+    computerScore = 0
+    playerScore = 0
+    content.textContent = ("The player wins! Play again?")
+    return console.log("Player wins!")
+    }
+  }
 
-function rounds() {
-    for (i = 0; i < 5; i++) {
-        if (i < 5) {
-            content.textContent = playerScore, computerScore
-            return game(playerSelection, computerSelection);
-        } else if (i === 5 && playerScore > computerScore) {
-            content.textContent = 'You won! Play again?'
-            return 'You won! Play again?';
-        } else if (i === 5 && computerScore > playerScore) {
-            content.textContent = 'You lost! Play again?'
-            return 'You lost! Play again?'
-        }
-    }}
