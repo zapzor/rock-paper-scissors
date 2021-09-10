@@ -1,1 +1,1 @@
-I will build a Rock Paper Scissors game with JS. Needs more styling.
+Rock Paper Scissors game built with JS. Needs more CSS styling.
