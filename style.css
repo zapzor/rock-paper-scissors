@@ -11,6 +11,8 @@ body {
   height: 100%;
 }
 
+/* Button styling */
+
 button {
   background-color: #ac8417;
   border: none;
@@ -23,6 +25,7 @@ button {
   cursor: pointer;
 }
 
+/* Centers buttons and text */
 
 .buttons {
   display: flex;
