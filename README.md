@@ -1,3 +1,3 @@
-Rock Paper Scissors game built with JS. Needs more styling. Buttons do not randomize correctly.
+Rock Paper Scissors game built with JS. Mostly finished.
 
 Can be accessed at: https://zapzor.github.io/Rock_Paper_Scissors/
