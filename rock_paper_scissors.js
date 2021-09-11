@@ -2,7 +2,7 @@
 let playerScore = 0
 let computerScore = 0
 const computerSelection = computerPlay();
-const container0 = document.querySelector("#div");
+const container0 = document.querySelector(".div");
 const content = document.createElement("div");
 const score = document.createElement("p1");
 

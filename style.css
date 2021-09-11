@@ -20,6 +20,7 @@ button {
   margin: 5px;
   color: white;
   font-size: 36px;
+  cursor: pointer;
 }
 
 
@@ -27,13 +28,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: goldenrod solid 10px;
+  height: 100vh;
 }
 
 .div {
   color: white;
-}
-
-.wrap {
-  display: flex;
 }
