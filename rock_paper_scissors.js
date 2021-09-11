@@ -36,8 +36,8 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     content.textContent = "Draw"
       return "Draw";
-  }else if (playerSelection === "scissors" && computerSelection === "paper" 
-    || playerSelection === "paper" && computerSelection === "rock" 
+  }else if (playerSelection === "scissors" && computerSelection === "paper"
+    || playerSelection === "paper" && computerSelection === "rock"
     || playerSelection === "rock" && computerSelection === "scissors") {
       playerScore++
       content.textContent = "You win!"
@@ -62,7 +62,7 @@ function game() {
     computerScore = 0
     playerScore = 0
     content.textContent = ("The computer wins! Play again?")
-    return console.log("Computer wins!") 
+    return console.log("Computer wins!")
   }else if (playerScore == 5) {
     computerScore = 0
     playerScore = 0
