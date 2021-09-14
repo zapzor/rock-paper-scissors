@@ -4,25 +4,24 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
   font-family: "Times-New-Roman", sans-serif;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.863);
+  background-color: black;
+  color: white;
   height: 100%;
 }
 
 /* Button styling */
 
 button {
-  background-color: #ac8417;
-  border: none;
+  background-color: black;
   border-radius: 10px;
   padding: 15px;
   width: 200px;
   margin: 5px;
-  color: white;
   font-size: 36px;
   cursor: pointer;
+  color: white;
 }
 
 /* Centers buttons and text */
@@ -34,6 +33,3 @@ button {
   height: 100vh;
 }
 
-.div {
-  color: white;
-}
