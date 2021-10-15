@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times-New-Roman', sans-serif;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+/* Button styling */
+
+.buttonWrap button {
+  background-color: black;
+  border: 3px solid;
+  border-radius: 10px;
+  padding: 0.25em 0.25em;
+  width: 200px;
+  margin: 5px;
+  font-size: 3rem;
+  cursor: pointer;
+  color: white;
+}
+
+.buttonWrap button:hover {
+  background-color: goldenrod;
+}
+
+/* Centers buttons and text */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
